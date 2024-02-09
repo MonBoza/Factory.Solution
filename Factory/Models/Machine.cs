@@ -1,5 +1,6 @@
-using System;
+
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Factory.Models
 {
@@ -7,6 +8,9 @@ namespace Factory.Models
   {
 
     public int MachineId { get; set; }
+
+    [Required(ErrorMessage = "Please enter a machine name!")]
     public string MachineName { get; set; }
+    public List<MachineEngineer> JoinEntities { get; }
   }
 }

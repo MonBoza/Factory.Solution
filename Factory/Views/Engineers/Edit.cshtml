@@ -1,0 +1,16 @@
+@model Factory.Models.Engineer
+@using Factory.Models
+
+<h4>Edit Engineer</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.EngineerId)
+
+    @Html.LabelFor(model => model.EngineerName)
+    @Html.EditorFor(model => model.EngineerName)
+    <br />
+    <input class="button" type="submit" value="Update" />
+}
+<br />
+<p>@Html.ActionLink("Back to List", "Index")</p>

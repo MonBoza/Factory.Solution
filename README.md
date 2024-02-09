@@ -17,69 +17,75 @@
 
 ## Setup/Installation Requirements
 
-* Clone this repo from
+This Project assumes you have MySql Server and Workbench  installed if you do not have them installed follow along with these lessons at
+[Learn how to program](https://full-time.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql).
 
-```bash
-https://github.com/MonBoza/Factory.Solution
-```
+1. Open terminal or command prompt.
+2. Clone the repository by running the following command to your desktop:
 
-* In the production sub directory (named `Factory`) create a file named `appsettings.json` and add the following code to it:
+    ```bash
+    git clone https://github.com/MonBoza/Factory.Solution.git
+     ```
 
- ```bash
+3. Open the project in your favorite code editor.
+
+4. Within the production directory `HairSalon`, create new file called `appsettings.json`
+
+5. Make sure appsettings.json is added to the .gitignore file and it is added to the repository before pushing with your personal information.
+
+6. Within `appsettings.json`, put in the following code replacing the `uid` and the `pwd` values with your own username and password for MySQL.
+
+    ```bash
     {
       "ConnectionStrings": {
-          "DefaultConnection": "Server=localhost;Port=3306;database=[DATABASE_NAME];uid=[USERNAME];pwd=[PASSWORD];"
+        "DefaultConnection": "Server=localhost;Port=3306;database=monica_barboza;uid=[YOUR-USER-HERE];pwd=[YOUR-PASSWORD-HERE];"
       }
     }
-   ```
+    ```
 
-  Make sure to update the string with your own values for [DATABASE-NAME],[USERNAME] and [PASSWORD], without square brackets. You can name the database whatever you like.
+7. To download the tools dotnet-ef that will create migrations and update your database run the following commands in your terminal.
 
-* In the terminal run the commands
+    ```bash
+    dotnet tool install --global dotnet-ef --version 6.0.0
+    ```
 
-```bash
-dotnet tool install --global dotnet-ef --version 6.0.0
-```
+    followed by:
 
-followed by:
+    ```bash
+    dotnet add package Microsoft.EntityFrameworkCore.Design -v 6.0.0
+    ```
 
-```bash
-dotnet add package Microsoft.EntityFrameworkCore.Design -v 6.0.0
-```
+8. To create a data migration for the database, initialize with
 
- to download the tools dotnet-ef that will create migrations and update your database.
-
-* To create a data migration for the database, initialize with
-
-```bash
-dotnet ef migrations add Initial
-```
+  ```bash
+  dotnet ef migrations add Initial
+  ```
 
 in your terminal. This should create a Migrations folder in the production subdirectory of your project.
 
-* To add subsequent migrations run the command
+9. To add subsequent migrations run the command
 
-```bash
-dotnet ef migrations add [AddExamplePriority]
-```
+  ```bash
+  dotnet ef migrations add AddExamplePriority
+  ```
 
- You can name the migration whatever you like, however it is common to start with a verb and use upper camel case. Remember to remove the square brackets!
+ You can name the migration whatever you like, however it is common to start with a verb and use upper camel case.
 
-* Run the following command to update the database.
+10. Run the following command to update the database.
 
-```bash
-dotnet ef database update
-```
+  ```bash
+  dotnet ef database update
+  ```
 
-* If you would like to remove a migration from the database, run
+11. If you would like to remove a migration from the database, run
 
-```bash
-dotnet ef migrations remove
-```
+  ```bash
+  dotnet ef migrations remove
+  ```
 
-* Run the command `dotnet watch run` to compile and run the application in development mode with a watcher. Optionally, you can run `dotnet build` to compile without running the app. 
+12. Run the command `dotnet watch run` to compile and run the application in development mode with a watcher. Optionally, you can run `dotnet build` to compile without running the app.
 
-* Open the browser to https://localhost:5001 to use the application.
+13. Open the browser to https://localhost:5001 to use the application.
 
 ## Known Bugs
 

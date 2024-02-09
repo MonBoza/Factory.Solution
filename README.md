@@ -1,86 +1,85 @@
-# (Application Name)
+# Dr.Sillystringz's Factory
 
-## (Brief Description of Application)
+## An Mvc web application to manage a factories engineers, machines and licenses
 
 ### By Monica Barboza
 
 ## Technologies Used
 
 * C#
-* ASP.NET
-* MS TEST
+* .NET 6
+* ASP.NET Core MVC
+* Entity Framework Core
 * Bootstrap
 * MySQL
-* ASP Core MVC MSBuild
 
 ## Description
 
-## Database Setup
-
-* Install MySqlConnector Package
-
-```bash
-dotnet add package MySqlConnector -v 2.2.0
-
-```
-
-1. In the Navigator>Administration window, select Data Import/Restore
-
-2. In Import Options select Import from Self-Contained File.
-
-3. Under Default Schema to be Imported to, Select the "New" button
-    * Enter the name of your database "project_name"
-    * Click OK
-
-4. Navigate to the tab called Import Progress and click Start Import at the bottom right corner of the window.
-
 ## Setup/Installation Requirements
 
-1. Open terminal or command prompt.
-2. Clone the repository by running the following command to your desktop:
+* Clone this repo from
 
 ```bash
-git clone https://github.com/MonBoza/project.git
+https://github.com/MonBoza/Factory.Solution
 ```
 
-3. Within the production directory "ProjectName", create new file called appsettings.json
+* In the production sub directory (named `Factory`) create a file named `appsettings.json` and add the following code to it:
 
-4. Within appsettings.json, put in the following code replacing the <code>uid</code> and the <code>pwd</code> values with youre own username and password for MySQL. 
+ ```bash
+    {
+      "ConnectionStrings": {
+          "DefaultConnection": "Server=localhost;Port=3306;database=[DATABASE_NAME];uid=[USERNAME];pwd=[PASSWORD];"
+      }
+    }
+   ```
+
+  Make sure to update the string with your own values for [DATABASE-NAME],[USERNAME] and [PASSWORD], without square brackets. You can name the database whatever you like.
+
+* In the terminal run the commands
 
 ```bash
-{
-  "ConnectionStrings": {
-      "DefaultConnection": "Server=localhost;Port=3306;database=to_do_list_with_mysqlconnector;uid=[YOUR-USERNAME-HERE];pwd=[YOUR-PASSWORD-HERE];",
-      "TestConnection": "Server=localhost;Port=3306;database=to_do_list_with_mysqlconnector_test;uid=[YOUR-USERNAME-HERE];pwd=[YOUR-PASSWORD-HERE];"
-  }
-}
+dotnet tool install --global dotnet-ef --version 6.0.0
 ```
 
-5.  Make sure .gitignore is added to the repository.
-6. Run
+followed by:
 
 ```bash
-dotnet build
+dotnet add package Microsoft.EntityFrameworkCore.Design -v 6.0.0
 ```
 
- in your terminal.
+ to download the tools dotnet-ef that will create migrations and update your database.
 
-## To Run Tests
-
-* Run tests by navigating to the test directory and running
+* To create a data migration for the database, initialize with
 
 ```bash
-dotnet restore
+dotnet ef migrations add Initial
 ```
 
-and then run
+in your terminal. This should create a Migrations folder in the production subdirectory of your project.
+
+* To add subsequent migrations run the command
 
 ```bash
-dotnet test
+dotnet ef migrations add [AddExamplePriority]
 ```
 
-* Tests are located in the Project.Test directory.
-* Open the project in your favorite code editor.
+ You can name the migration whatever you like, however it is common to start with a verb and use upper camel case. Remember to remove the square brackets!
+
+* Run the following command to update the database.
+
+```bash
+dotnet ef database update
+```
+
+* If you would like to remove a migration from the database, run
+
+```bash
+dotnet ef migrations remove
+```
+
+* Run the command `dotnet watch run` to compile and run the application in development mode with a watcher. Optionally, you can run `dotnet build` to compile without running the app. 
+
+* Open the browser to https://localhost:5001 to use the application.
 
 ## Known Bugs
 
@@ -89,14 +88,8 @@ dotnet test
 
 ## License
 
-Copyright 2024 MONICA BARBOZA
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Email: (mailto:<MonBoza@gmail.com>)
 
-Copyright (c) Month day, 2024 Monica Barboza
+Copyright (c) February 9, 2024 Monica Barboza

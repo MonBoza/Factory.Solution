@@ -7,11 +7,10 @@
   <h3><em> No engineers found </em></h3>
 }
 
-  @foreach(Engineer engineer in Model)
-  {
-    <li>@Html.ActionLink($"{engineer.EngineerName}", "Details", new { id = engineer.EngineerId })</li>
-  }
-  
-  <button>@Html.ActionLink("Add a new Engineer", "Create")</button>
-  <button>@Html.ActionLink("Home", "Index", "Home")</button>
+@foreach (Engineer engineer in Model)
+{
+  <li>@Html.ActionLink($"{engineer.EngineerName}", "Details", new { id = engineer.EngineerId })</li>
+}
 
+<button>@Html.ActionLink("Add a new Engineer", "Create")</button>
+<button>@Html.ActionLink("Home", "Index", "Home")</button>

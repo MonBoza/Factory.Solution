@@ -5,12 +5,12 @@
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.EngineerId)
+  @Html.HiddenFor(model => model.EngineerId)
 
-    @Html.LabelFor(model => model.EngineerName)
-    @Html.EditorFor(model => model.EngineerName)
-    <br />
-    <input class="button" type="submit" value="Update" />
+  @Html.LabelFor(model => model.EngineerName)
+  @Html.EditorFor(model => model.EngineerName)
+  <br />
+  <input class="button" type="submit" value="Update" />
 }
 <br />
 <p>@Html.ActionLink("Back to List", "Index")</p>

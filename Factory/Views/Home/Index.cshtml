@@ -9,14 +9,14 @@
   }
   else
   {
-      @foreach (Engineer engineer in Model["engineers"])
-      {
-        <h5>@Html.ActionLink(@engineer.EngineerName, "Details", "Engineers", new { id = @engineer.EngineerId})</h5>
-      }
+    @foreach (Engineer engineer in Model["engineers"])
+    {
+      <h5>@Html.ActionLink(@engineer.EngineerName, "Details", "Engineers", new { id = @engineer.EngineerId })</h5>
+    }
   }
   <button>@Html.ActionLink("Manage Engineers", "Index", "Engineers")</button>
 </div>
-<hr />  
+<hr />
 <div class="card">
   <h2>Machines</h2>
   <hr />
@@ -26,17 +26,11 @@
   }
   else
   {
-      @foreach (Machine machine in Model["machines"])
-      {
-        <h5>@Html.ActionLink(@machine.MachineName, "Details", "Machines", new { id = @machine.MachineId})</h5>
-      }
+    @foreach (Machine machine in Model["machines"])
+    {
+      <h5>@Html.ActionLink(@machine.MachineName, "Details", "Machines", new { id = @machine.MachineId })</h5>
+
+    }
   }
   <button>@Html.ActionLink("Manage machines", "Index", "Machines")</button>
 </div>
-
-
-
-
-
-
-

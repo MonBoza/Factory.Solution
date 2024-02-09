@@ -7,11 +7,10 @@
   <h3><em> No machines found </em></h3>
 }
 
-  @foreach(Machine machine in Model)
-  {
-    <li>@Html.ActionLink($"{machine.MachineName}", "Details", new { id = machine.MachineId })</li>
-  }
-  
-  <button>@Html.ActionLink("Add a new machine", "Create")</button>
-  <button>@Html.ActionLink("Home", "Index", "Home")</button>
+@foreach (Machine machine in Model)
+{
+  <h5>@Html.ActionLink($"{machine.MachineName}", "Details", new { id = machine.MachineId })</h5>
+}
 
+<button>@Html.ActionLink("Add a new machine", "Create")</button>
+<button>@Html.ActionLink("Home", "Index", "Home")</button>

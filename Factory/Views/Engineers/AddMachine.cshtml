@@ -6,12 +6,12 @@
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.EngineerId)
+  @Html.HiddenFor(model => model.EngineerId)
 
-    @Html.Label("Select a Machine")
-    @Html.DropDownList("MachineId")
+  @Html.Label("Select a Machine")
+  @Html.DropDownList("MachineId")
 
-    <input class="button" type="submit" value="Add" />
+  <input class="button" type="submit" value="Add" />
 }
 
 <p>@Html.ActionLink("Back to Engineers", "Index")</p>

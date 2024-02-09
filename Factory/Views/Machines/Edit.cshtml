@@ -1,0 +1,15 @@
+@model Factory.Models.Machine
+
+<h2>Edit Machine</h2>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MachineId)
+
+  @Html.LabelFor(model => model.MachineName)
+  @Html.EditorFor(model => model.MachineName)
+
+  <input type="submit" value="Save"/>
+}
+
+<button>@Html.ActionLink("Back to list", "Index")</button>

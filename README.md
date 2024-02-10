@@ -31,7 +31,7 @@ This Project assumes you have MySql Server and Workbench  installed if you do no
 
 3. Open the project in your favorite code editor.
 
-4. Within the production directory `HairSalon`, create new file called `appsettings.json`
+4. Within the production directory `Factory`, create new file called `appsettings.json`
 
 5. Make sure appsettings.json is added to the .gitignore file and it is added to the repository before pushing with your personal information.
 

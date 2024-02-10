@@ -15,6 +15,8 @@
 
 ## Description
 
+Welcome to Dr.Sillystringz's Factory Management System - a cutting-edge MVC web application designed to elevate the management of engineers, machines, and licenses within your factory. This tool empowers users with the ability to effortlessly add, update, and delete engineers, while also providing the capability to specify the machines each engineer is licensed to repair. The same powerful functionality extends to machine management, creating a seamless and efficient process for overseeing factory operations.
+
 ## Setup/Installation Requirements
 
 This Project assumes you have MySql Server and Workbench  installed if you do not have them installed follow along with these lessons at

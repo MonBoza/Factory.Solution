@@ -1,4 +1,4 @@
-# Dr.Sillystringz's Factory
+# Dr. Sillystringz's Factory
 
 ## An Mvc web application to manage a factories engineers, machines and licenses
 

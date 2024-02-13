@@ -13,12 +13,12 @@
 else
 {
   <h4>This Engineer is licensed to :</h4>
-  @foreach (MachineEngineer join in Model.JoinEntities)
+  @foreach (EngineerMachine join in Model.JoinEntities)
   {
     <h5>@Html.ActionLink($"{join.Machine.MachineName}", "Details", "Machines", new { id = join.Machine.MachineId })</h5>
     @using (Html.BeginForm("DeleteJoin", "Engineers"))
     {
-      @Html.Hidden("joinId", @join.MachineEngineerId)
+      @Html.Hidden("joinId", @join.EngineerMachineId)
       <input type="submit" value="Delete" />
     }
   }

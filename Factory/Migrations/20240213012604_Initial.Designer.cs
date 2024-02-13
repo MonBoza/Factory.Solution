@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Factory.Migrations
 {
     [DbContext(typeof(FactoryContext))]
-    [Migration("20240209203511_AddMachineEngineerEntity")]
-    partial class AddMachineEngineerEntity
+    [Migration("20240213012604_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,6 +35,27 @@ namespace Factory.Migrations
                     b.ToTable("Engineers");
                 });
 
+            modelBuilder.Entity("Factory.Models.EngineerMachine", b =>
+                {
+                    b.Property<int>("EngineerMachineId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("EngineerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MachineId")
+                        .HasColumnType("int");
+
+                    b.HasKey("EngineerMachineId");
+
+                    b.HasIndex("EngineerId");
+
+                    b.HasIndex("MachineId");
+
+                    b.ToTable("EngineerMachines");
+                });
+
             modelBuilder.Entity("Factory.Models.Machine", b =>
                 {
                     b.Property<int>("MachineId")
@@ -50,28 +71,7 @@ namespace Factory.Migrations
                     b.ToTable("Machines");
                 });
 
-            modelBuilder.Entity("Factory.Models.MachineEngineer", b =>
-                {
-                    b.Property<int>("MachineEngineerId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("EngineerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MachineId")
-                        .HasColumnType("int");
-
-                    b.HasKey("MachineEngineerId");
-
-                    b.HasIndex("EngineerId");
-
-                    b.HasIndex("MachineId");
-
-                    b.ToTable("MachineEngineers");
-                });
-
-            modelBuilder.Entity("Factory.Models.MachineEngineer", b =>
+            modelBuilder.Entity("Factory.Models.EngineerMachine", b =>
                 {
                     b.HasOne("Factory.Models.Engineer", "Engineer")
                         .WithMany("JoinEntities")

@@ -18,14 +18,14 @@
 else
 {
 
-  @foreach (MachineEngineer join in Model.JoinEntities)
+  @foreach (EngineerMachine join in Model.JoinEntities)
   {
     <h5>@Html.ActionLink($"{join.Engineer.EngineerName}", "Details", "Engineers", new { id = join.Engineer.EngineerId })
 </h5>
 
     @using (Html.BeginForm("DeleteJoin", "Machines"))
     {
-      @Html.Hidden("joinId", join.MachineEngineerId)
+      @Html.Hidden("joinId", join.EngineerMachineId)
       <input type="submit" value="Delete" />
     }
   }
